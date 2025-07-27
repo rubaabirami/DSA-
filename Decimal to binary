@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+//Time Complexity	O(log2n)
+//Space Complexity	O(1)
+int decNum(int n){
+    int ans=0,pow=1;
+    while(n>0){
+        int rem=n%2;//for remainder
+        n= n /2;//for quotient
+        ans=ans+(rem*pow);
+        pow=pow*10;
+        
+    }
+    return ans;
+    
+}
+int main(){
+    int n;
+    cout<<"Enter num=";
+    cin>>n;
+    cout<<decNum(n)<<endl;;
+}
