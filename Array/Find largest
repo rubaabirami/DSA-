@@ -1,0 +1,24 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+int main() {
+    int n;
+    cout<<"Enter number of array size=";
+    cin>>n;
+    
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for(int i=0;i<n;i++)
+    cin>>arr[i];
+    int largest=INT_MIN;
+        for(int i=0;i<n;i++){
+            largest=max(arr[i],largest);
+        }
+        cout<<"largest num is="<<largest<<endl;
+
+    return 0;
+}
