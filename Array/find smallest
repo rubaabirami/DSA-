@@ -1,0 +1,24 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+int main() {
+    int n;
+    cout<<"Enter number of array size=";
+    cin>>n;
+    
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for(int i=0;i<n;i++)
+    cin>>arr[i];
+    int smallest=INT_MAX;
+        for(int i=0;i<n;i++){
+            smallest=min(arr[i],smallest);
+        }
+        cout<<"Smallest num is="<<smallest<<endl;
+
+    return 0;
+}
