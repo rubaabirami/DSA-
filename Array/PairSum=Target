@@ -1,0 +1,52 @@
+
+Timecomplexity=o(n)
+Spacecomplexity=o(n)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> pairSum(vector<int>& nums, int target) {
+    vector<int> ans;
+    int n = nums.size();
+    int i = 0, j = n - 1;
+
+    while (i < j) {
+        int Sum = nums[i] + nums[j];
+        if (Sum < target) {
+            i++;
+        } else if (Sum > target) {
+            j--;
+        } else {
+            ans.push_back(i);  // index of first element
+            ans.push_back(j);  // index of second element
+            break;
+        }
+    }
+
+    return ans;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> nums(n);
+    cout << "Enter " << n << " sorted elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+    }
+
+    int target;
+    cout << "Enter the target sum: ";
+    cin >> target;
+
+    vector<int> ans = pairSum(nums, target);
+
+    if (!ans.empty())
+        cout << "Pair found at indices: " << ans[0] << " , " << ans[1] << endl;
+    else
+        cout << "No pair found" << endl;
+
+    return 0;
+}
