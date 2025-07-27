@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+//Time Complexity	O(log10n)
+//Space Complexity	O(1)
+int binNum(int n){
+    int ans=0,pow=1;
+    while(n>0){
+        int rem=n%10;//for remainder
+        ans=ans+(rem*pow);//convert to decimal
+        n= n /10;//for quotient
+        pow=pow*2;
+        
+    }
+    return ans;
+    
+}
+int main(){
+    int n;
+    cout<<"Enter num=";
+    cin>>n;
+    cout<<binNum(n)<<endl;;
+}
