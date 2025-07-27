@@ -1,4 +1,5 @@
-
+//Simecomplexity=o(n)
+//Spacecomplexity=o(1)
 #include <iostream>
 #include<climits>
 using namespace std;
