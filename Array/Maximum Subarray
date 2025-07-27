@@ -1,4 +1,5 @@
-
+//Timecomplexity=o(n3)
+//Spacecomplexity=o(n)
 #include <iostream>
 using namespace std;
 int main() {
