@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+//Time Complexity	O(n)
+//Space Complexity	O(1)
+void fibo(int n){
+    int first=0,second=1,next;
+    if(n>1)
+    cout<<first<<endl;
+    if(n>2)
+    cout<<second<<endl;
+    for(int i=3;i<=n;i++){
+        next=first+second;
+        cout<<next<<endl;
+        first=second;
+        second=next;
+    }
+}
+int main(){
+    int n;
+    cout<<"Enter number of series =";
+    cin>>n;
+    fibo(n);
+}
