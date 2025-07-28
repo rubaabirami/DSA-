@@ -1,0 +1,47 @@
+// Time complexity = O(log n)
+// Space complexity = O(1)
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int peakIndex(vector<int> nums, int n){
+    int st = 1, end = n - 2;  // skip the first and last index to avoid out-of-bound
+    int mid;
+
+    while(st <= end){
+        mid = st + (end - st) / 2;
+
+        if(nums[mid - 1] < nums[mid] && nums[mid] > nums[mid + 1]){
+            return mid; // peak found
+        }
+        else if(nums[mid] < nums[mid + 1]){
+            st = mid + 1;
+        }
+        else {
+            end = mid - 1;
+        }
+    }
+
+    return -1; // peak not found (shouldn't happen if input is a valid mountain array)
+}
+
+int main(){
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    vector<int> nums(n); // initialize size
+    cout << "Enter " << n << " elements: ";
+    for(int i = 0; i < n; i++){
+        cin >> nums[i];
+    }
+
+    int peak = peakIndex(nums, n);
+    if (peak != -1)
+        cout << "Peak found at index = " << peak << endl;
+    else
+        cout << "No peak found." << endl;
+
+    return 0;
+}
