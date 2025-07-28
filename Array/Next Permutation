@@ -1,0 +1,66 @@
+//Time Complexity: O(n)
+//Space Complexity: O(1)
+#include <iostream>
+#include <algorithm> // for swap
+using namespace std;
+
+// Function to reverse the array from index 'start' to 'end'
+void reverseArray(int arr[], int start, int end) {
+    while (start < end) {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+
+// Function to find the next permutation of the array
+void nextPermutation(int arr[], int n) {
+    int pivot = -1;
+
+    // Step 1: Find the pivot (first index from right where arr[i] < arr[i+1])
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] < arr[i + 1]) {
+            pivot = i;
+            break;
+        }
+    }
+
+    // If no pivot, array is in descending order — reverse it to get smallest permutation
+    if (pivot == -1) {
+        reverseArray(arr, 0, n - 1);
+        return;
+    }
+
+    // Step 2: Find the next larger element to the right of pivot and swap
+    for (int i = n - 1; i > pivot; i--) {
+        if (arr[i] > arr[pivot]) {
+            swap(arr[i], arr[pivot]);
+            break;
+        }
+    }
+
+    // Step 3: Reverse the suffix starting from pivot + 1
+    reverseArray(arr, pivot + 1, n - 1);
+}
+
+int main() {
+    int n;
+    cout << "Enter number of array elements = ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    nextPermutation(arr, n);
+
+    cout << "Next permutation: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
