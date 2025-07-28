@@ -1,0 +1,40 @@
+//Time complexity=O(n)
+//Space complexity=O(1)
+#include<iostream>
+#include<climits>
+#include<vector>
+
+using namespace std;
+
+int main(){
+    int n;
+    
+    cout << "Enter the size of arr = ";
+    cin >> n;
+    vector<int> height(n);
+    
+    cout << "Enter the height: ";
+    for(int i = 0; i < n; i++){
+        cin >> height[i];
+    }
+    
+    int lp = 0;
+    int rp = n - 1;
+    int maxWater = 0;
+    
+    while(lp < rp){
+        int width = rp - lp;//width
+        int ht = min(height[lp], height[rp]);//min height
+        int currWater = width * ht;
+        maxWater = max(maxWater, currWater);
+        
+        // Move the pointer pointing to the shorter line
+        if(height[lp] < height[rp])
+            lp++;
+        else
+            rp--;
+    }
+    
+    cout << "Maximum water that can be contained: " << maxWater << endl; 
+    return 0;
+}
