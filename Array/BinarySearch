@@ -1,0 +1,46 @@
+// Time complexity = O(logn)
+// Space complexity = O(1)
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int binarySearch(vector<int> nums, int target, int n){
+    int st = 0, end = n - 1, mid;
+    
+    while(st <= end){
+        mid = (st + end) / 2;
+        if(nums[mid] == target){
+            return mid; // target found
+        } else if(target < nums[mid]){
+            end = mid - 1;
+        } else {
+            st = mid + 1;
+        }
+    }
+    return -1; // target not found
+}
+
+int main(){
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    vector<int> nums(n); // initialize size
+    cout << "Enter " << n << " elements (sorted): ";
+    for(int i = 0; i < n; i++){
+        cin >> nums[i];
+    }
+
+    int target;
+    cout << "Enter target value: ";
+    cin >> target;
+
+    int result = binarySearch(nums, target, n);
+    
+    if(result != -1)
+        cout << "Target found at index: " << result << endl;
+    else
+        cout << "Target not found." << endl;
+
+    return 0;
+}
