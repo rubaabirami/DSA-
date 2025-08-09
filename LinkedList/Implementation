@@ -1,0 +1,82 @@
+#include <iostream>
+#include <list>  // for std::list
+using namespace std;
+
+int main() {
+    list<int> linkedList;
+    int choice, value, pos;
+
+    while (true) {
+        cout << "\n===== Linked List Menu =====\n";
+        cout << "1. Push Back (Insert at end)\n";
+        cout << "2. Push Front (Insert at start)\n";
+        cout << "3. Pop Back (Delete last)\n";
+        cout << "4. Pop Front (Delete first)\n";
+        cout << "5. Insert at Position\n";
+        cout << "6. Display List\n";
+        cout << "7. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter value to push back: ";
+                cin >> value;
+                linkedList.push_back(value);
+                break;
+
+            case 2:
+                cout << "Enter value to push front: ";
+                cin >> value;
+                linkedList.push_front(value);
+                break;
+
+            case 3:
+                if (!linkedList.empty()) {
+                    linkedList.pop_back();
+                    cout << "Last element removed.\n";
+                } else {
+                    cout << "List is empty!\n";
+                }
+                break;
+
+            case 4:
+                if (!linkedList.empty()) {
+                    linkedList.pop_front();
+                    cout << "First element removed.\n";
+                } else {
+                    cout << "List is empty!\n";
+                }
+                break;
+
+            case 5:
+                cout << "Enter position (starting from 0): ";
+                cin >> pos;
+                cout << "Enter value: ";
+                cin >> value;
+                if (pos < 0 || pos > linkedList.size()) {
+                    cout << "Invalid position!\n";
+                } else {
+                    auto it = linkedList.begin();
+                    advance(it, pos);
+                    linkedList.insert(it, value);
+                }
+                break;
+
+            case 6:
+                cout << "Linked List: ";
+                for (int v : linkedList) {
+                    cout << v << " ";
+                }
+                cout << endl;
+                break;
+
+            case 7:
+                cout << "Exiting...\n";
+                return 0;
+
+            default:
+                cout << "Invalid choice! Try again.\n";
+        }
+    }
+}
