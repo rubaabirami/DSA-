@@ -1,0 +1,40 @@
+Time Complexity=O(n)
+Space Complexity=O(n)
+#include <iostream>
+#include<stack>
+using namespace std;
+int main(){
+    stack<int>s;
+    int n,values;
+    cout<<"Enter the value of n=";
+    cin>>n;
+    cout<<"enter "<< n <<" elements:";
+    for(int i=0;i<n;i++){
+        cin>>values;
+    s.push(values);
+    
+    }
+   cout<<"stack size = "<<s.size()<<endl;
+   cout<<"stack Top elem = "<<s.top()<<endl;
+   cout<<"stack elements";
+   while(!s.empty()){
+       cout<<s.top()<<endl;
+       s.pop();
+   }
+   cout<<endl;
+   return 0;
+}
+output:
+Enter the value of n=5
+enter 5 elements:10
+20
+30
+40
+50
+stack size = 5
+stack Top elem = 50
+stack elements50
+40
+30
+20
+10
