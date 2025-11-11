@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);   // take input with spaces
+
+    int left = 0;                // pointer at the beginning
+    int right = str.size() - 1;  // pointer at the end
+
+    // loop until both pointers meet
+    while (left < right) {
+        swap(str[left], str[right]);  // swap the characters
+        left++;                       // move left pointer forward
+        right--;                      // move right pointer backward
+    }
+
+    cout << "Reversed string: " << str << endl;
+    return 0;
+}
