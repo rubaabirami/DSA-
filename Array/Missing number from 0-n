@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int findMissingNumber(int arr[], int n) {
+    int total = n * (n + 1) / 2;  // sum of first n natural numbers (0 to n)
+    int sum = 0;
+
+    // find actual sum of array elements
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+
+    return total - sum;  // difference gives the missing number
+}
+
+int main() {
+    int n;
+    cout << "Enter n (the range will be 0 to n): ";
+    cin >> n;
+
+    int size = n;  // since one number is missing, array size = n
+    int arr[size];
+
+    cout << "Enter " << size << " distinct numbers (from 0 to " << n << "): ";
+    for (int i = 0; i < size; i++) {
+        cin >> arr[i];
+    }
+
+    int missing = findMissingNumber(arr, n);
+    cout << "Missing number is: " << missing << endl;
+
+    return 0;
+}
+Enter n (the range will be 0 to n): 5
+Enter 5 distinct numbers (from 0 to 5): 0 1 2 4 5
+Missing number is: 3
