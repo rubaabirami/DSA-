@@ -1,0 +1,31 @@
+#include <iostream>   // for input and output
+#include <string>     // for string functions
+using namespace std;
+
+int main() {
+    string s;
+    cout << "Enter a string: ";
+    getline(cin, s);   // take full string input (including spaces if any)
+
+    int left = 0;                // pointer at start
+    int right = s.size() - 1;    // pointer at end
+    bool isPalindrome = true;    // assume it is a palindrome
+
+    // check characters from both ends
+    while (left < right) {
+        if (s[left] != s[right]) {  // mismatch found
+            isPalindrome = false;
+            break;                   // not a palindrome
+        }
+        left++;   // move forward
+        right--;  // move backward
+    }
+
+    // print result
+    if (isPalindrome)
+        cout << "The string is a palindrome." << endl;
+    else
+        cout << "The string is not a palindrome." << endl;
+
+    return 0;
+}
