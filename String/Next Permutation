@@ -1,0 +1,31 @@
+#include <iostream>
+#include <algorithm> // for sort() and next_permutation()
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+
+    // Step 1: Sort the string to start from the smallest lexicographic order
+    sort(str.begin(), str.end());
+
+    cout << "All permutations of the string are:\n";
+
+    // Step 2: Use do-while loop to generate all permutations
+    do {
+        cout << str << endl; // print current permutation
+    } while (next_permutation(str.begin(), str.end()));
+    // next_permutation() rearranges the string into the next lexicographically greater permutation
+    // returns false when all permutations have been generated
+
+    return 0;
+}
+Enter a string: abc
+All permutations of the string are:
+abc
+acb
+bac
+bca
+cab
+cba
