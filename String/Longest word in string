@@ -1,0 +1,27 @@
+#include <iostream>
+#include <sstream>  // for stringstream
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);  // take full line input (with spaces)
+
+    stringstream ss(str); // stringstream breaks the string into words
+    string word, longestWord;
+    int maxLength = 0;
+
+    // Extract each word from the string
+    while (ss >> word) { //extract one word at a time
+        int len = word.length(); // find length of current word
+        if (len > maxLength) {   // check if it's longer than previous longest
+            maxLength = len;
+            longestWord = word;  // store this as the new longest word
+        }
+    }
+
+    cout << "The longest word is: " << longestWord << endl;
+    cout << "Length of the longest word: " << maxLength << endl;
+
+    return 0;
+}
