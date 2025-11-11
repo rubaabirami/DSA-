@@ -1,0 +1,26 @@
+#include <iostream>   
+#include <string>     
+using namespace std;
+
+int main() {
+    string s;   // to store the input sentence
+    cout << "Enter a sentence: ";
+    getline(cin, s);   // takes the full line input (including spaces)
+
+    string word = "", result = "";   // word stores one word, result stores final reversed sentence
+
+    // loop runs from last character to first
+    for (int i = s.size() - 1; i >= 0; i--) {
+        if (s[i] == ' ') {           // if a space is found, it means a word has ended
+            result += word + " ";    // add the word to result followed by a space
+            word = "";               // clear the word for the next one
+        } else {
+            word = s[i] + word;      // build the word backwards (since we are going from end to start)
+        }
+    }
+
+    result += word;   // add the first word (which doesn’t end with space)
+
+    cout << "Reversed sentence: " << result << endl;  // print the final reversed sentence
+    return 0;   // end of program
+}
