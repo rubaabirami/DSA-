@@ -1,0 +1,26 @@
+#include <iostream>      // for input and output
+#include <string>        // for using string
+#include <unordered_map> // for storing frequency (fast lookup)
+using namespace std;
+
+int main() {
+    string s;                          // declare a string variable
+    cout << "Enter a string: ";
+    getline(cin, s);                   // read the whole line (including spaces)
+
+    unordered_map<char, int> freq;     // store character and its count
+
+    // count frequency of each character
+    for (char c : s) {
+        freq[c]++;                     // increase count for this character
+    }
+
+    cout << "\nCharacter frequencies:\n";
+
+    // print each character and its frequency
+    for (auto it : freq) {
+        cout << "'" << it.first << "' -> " << it.second << endl;
+    }
+
+    return 0;                          // end program
+}
