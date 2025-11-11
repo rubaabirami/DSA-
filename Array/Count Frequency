@@ -1,0 +1,31 @@
+#include <iostream>      // for input/output
+#include <unordered_map> // for storing frequency
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;             // input array size
+
+    int arr[n];           // declare array of size n
+    cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];    // input array elements
+    }
+
+    unordered_map<int, int> freq;   // store element and its frequency
+
+    // count frequency of each element
+    for (int i = 0; i < n; i++) {
+        freq[arr[i]]++;   // increase count for that number
+    }
+
+    cout << "\nElement frequencies:\n";
+
+    // print each element and its frequency
+    for (auto it : freq) {
+        cout << it.first << " -> " << it.second << endl;
+    }
+
+    return 0;   // end program
+}
